@@ -1,0 +1,104 @@
+---
+import Tooltip from "./Tooltip.astro";
+interface Props {
+  title: string;
+  topic: string;
+  fileLink?: string | undefined;
+  routeLink: string;
+}
+
+const { title, topic, fileLink, routeLink } = Astro.props;
+---
+
+<li class="lab">
+  <a class="lab__link" href={routeLink}>
+    <h2>{title}</h2>
+    <p><b>Тема:</b>&nbsp<span>{topic}</span></p>
+    <div class="sideboard">
+      <Tooltip width="4rem" height="4rem" tooltip="Відкрити">
+        <a class="lab__button share" href={routeLink}></a>
+      </Tooltip>
+
+      <Tooltip width="4rem" height="4rem" tooltip="Завантажити звіт">
+        <a class="lab__button download" href={fileLink} download></a>
+      </Tooltip>
+    </div>
+  </a>
+</li>
+
+<style>
+  li.lab {
+    position: relative;
+    list-style-type: none;
+    width: 100%;
+    height: fit-content;
+    outline: var(--outline);
+
+    transition: all 100ms linear;
+
+    &:focus-within {
+      outline: var(--outline-focus);
+
+      .lab__button {
+        background-color: var(--object-color-focus);
+        transition: background-color 100ms linear;
+      }
+    }
+  }
+
+  li.lab > .lab__link {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+    padding: 0rem 2rem;
+
+    & :where(:focus, :active) {
+      border: none;
+      outline: none;
+    }
+
+    & > h2 {
+      color: var(--text-important);
+    }
+
+    & > p {
+      max-width: 70%;
+    }
+  }
+
+  .sideboard {
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    height: 4rem;
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+
+  .lab__button {
+    display: block;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--object-color);
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+  }
+
+  .lab__button.share {
+    mask-image: url(/icons/share.svg);
+    -webkit-mask-image: url(/icons/share.svg);
+  }
+
+  .lab__button.download {
+    mask-image: url(/icons/download.svg);
+    -webkit-mask-image: url(/icons/download.svg);
+  }
+
+  .lab__button:hover {
+    background-color: var(--object-color-focus);
+    transition: background-color 100ms linear;
+  }
+</style>

@@ -1,0 +1,64 @@
+<header class="title-layout">
+  <article class="title-content">
+    <h1 class="important-text">Основи front-end технологій</h1>
+    <p>Снігура Павла ІС-12</p>
+    <a class="github" href="https://github.com/Lucky4rever/">
+      <div class="github__icon"></div>
+      <div>GitHub</div>
+    </a>
+  </article>
+  <picture>
+    <source srcset="/author.jpg" />
+    <img class="title-photo" alt="photo" loading="lazy" />
+  </picture>
+</header>
+
+<style>
+  .title-layout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 85% 15%;
+    background-color: var(--title-background);
+    color: var(--title-text);
+  }
+
+  .title-layout > .title-content {
+    padding: 2rem 4rem;
+  }
+
+  .title-layout > .title-content > .important-text {
+    color: var(--title-text-important);
+  }
+
+  .title-layout > .title-content > a {
+    color: var(--title-text);
+    text-decoration: none;
+  }
+
+  .title-layout .title-photo {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: 0rem 35%;
+  }
+
+  .github {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .github > .github__icon {
+    width: 1rem;
+    height: 1rem;
+    aspect-ratio: 1 / 1;
+
+    background-color: var(--title-text);
+    mask: url(/icons/github.svg);
+    mask-size: 100%;
+
+    -webkit-mask: url(/icons/github.svg);
+    -webkit-size: 100%;
+  }
+</style>

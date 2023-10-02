@@ -1,0 +1,78 @@
+:root {
+    width: 100%;
+    height: 100%;
+}
+
+.animation-layout {
+    width: 100%;
+    height: 100%;
+    margin: 0rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.container {
+    width: 40rem;
+    height: 100%;
+}
+
+.component {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    border: 0.125rem solid black;
+    border-radius: 2rem;
+}
+
+.red {
+    background-color: #cd0067;
+    transform: rotateZ(165deg);
+}
+
+.yellow {
+    background-color: #f8f804;
+    transform: rotateZ(285deg);
+}
+
+.blue {
+    background-color: #bbcbe2;
+    transform: rotateZ(45deg);
+}
+
+/* absolute position */
+
+.container.position {
+    position: relative;
+
+    &>.red {
+        top: 15rem;
+        left: 21rem;
+    }
+
+    &>.yellow {
+        top: 15rem;
+        left: 9rem;
+    }
+
+    &>.blue {
+        top: 5rem;
+        left: 15rem;
+    }
+}
+
+/* transform position */
+
+.container.transform {
+    &>.red {
+        translate: 21rem 15rem;
+    }
+
+    &>.yellow {
+        translate: 9rem 15rem;
+    }
+
+    &>.blue {
+        translate: 15rem 5rem;
+    }
+}

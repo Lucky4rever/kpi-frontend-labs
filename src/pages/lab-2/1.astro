@@ -1,0 +1,107 @@
+<table class="main-table">
+  <tr>
+    <!-- top left sector -->
+    <td>
+      <table class="inner-table">
+        <td class="first-row">Снігур</td>
+        <td>
+          <table class="inner-table">
+            <tr class="first-row">
+              <td>Павло</td>
+            </tr>
+            <tr class="second-row">
+              <td> ІС-12 ЛР-2 Варіант 3</td>
+            </tr>
+          </table>
+        </td>
+      </table>
+    </td>
+
+    <!-- top right sector -->
+    <td class="first-row">Володимирович</td>
+  </tr>
+  <tr>
+    <!-- bottom left sector -->
+    <td>
+      <table class="inner-table">
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+
+    <!-- bottom right sector -->
+    <td>
+      <table class="inner-table">
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr><td colspan="2">&nbsp;</td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<style>
+  :root {
+    --outline: 0.05rem solid black;
+    --color-1: #038f8f;
+    --color-2: #f5f503;
+    --color-3: #00ff15;
+  }
+
+  .main-table {
+    width: 40rem;
+    height: 20rem;
+    margin: 5rem;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: var(--outline);
+  }
+
+  .main-table tr {
+    height: 0.5em;
+    width: 0.5em;
+  }
+
+  .main-table td {
+    overflow: hidden;
+  }
+
+  .main-table .inner-table {
+    width: 100%;
+    height: 100%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .main-table :where(tr, td) {
+    padding: 0px;
+    outline: var(--outline);
+    overflow: hidden;
+  }
+
+  .first-row {
+    background-color: var(--color-1);
+  }
+
+  .second-row {
+    background-color: var(--color-2);
+  }
+
+  :is(.first-row, .second-row) {
+    transition: filter 500ms;
+    color: var(--color-3);
+
+    &:hover {
+      filter: invert(1);
+    }
+  }
+</style>

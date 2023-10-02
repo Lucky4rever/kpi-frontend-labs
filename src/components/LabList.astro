@@ -1,0 +1,32 @@
+---
+import LabListTile from "./LabListTile.astro";
+
+type LabMarkdown = {
+  title: string;
+  topic: string;
+  fileLink?: string | undefined;
+  routeLink: string;
+};
+
+const labs = await Astro.glob("/public/labs/lab-*/lab-*.md");
+const nonDraftLabs = labs.filter((lab) => !lab.frontmatter.draft);
+---
+
+<nav class="labs">
+  {
+    nonDraftLabs.map((lab) => (
+      <LabListTile {...(lab.frontmatter as LabMarkdown)} />
+    ))
+  }
+</nav>
+
+<style>
+  .labs {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-block: 1rem;
+  }
+</style>
