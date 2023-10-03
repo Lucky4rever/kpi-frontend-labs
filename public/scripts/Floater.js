@@ -57,7 +57,7 @@ Floater.prototype.createElement = function() {
   mainPageLink.text = 'Home Page';
 
   const gitLink = document.createElement('a');
-  gitLink.href = 'https://github.com/Lucky4rever/';
+  gitLink.href = 'https://github.com/Lucky4rever/kpi-frontend-labs/';
   gitLink.className = 'floater__link';
   gitLink.text = 'GitHub';
 
